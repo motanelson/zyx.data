@@ -23,7 +23,22 @@ def processs(values):
                 vc=b
                 vv=vv+[vc]
         v=v+[vv]
-    return v       
+    return v
+def saves(files,arrs):
+    tabs=False
+    f1=open(files,"w")
+    for a in arrs:
+        tabs=False
+        for b in a:
+            if tabs:
+                f1.write(", ")
+            tabs=True
+            s=str(b)
+            f1.write(s)
+            
+        f1.write("\n")
+    f1.close()
+       
 def report(arrs):
     tabs=12
     
@@ -46,3 +61,4 @@ values="""4,0,0,0,hello
 0,0,0,4,hello"""
 arr=processs(values)
 sreport(arr)
+saves("my.zyx",arr)
