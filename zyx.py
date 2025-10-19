@@ -1,4 +1,7 @@
 print("\033c\033[43;30m\ndata\n")
+def asort(arr):
+    # Retorna os índices ordenados pelo primeiro item de cada sublista
+    return sorted(range(len(arr)), key=lambda i: arr[i][0])
 def processs(values):
     v=[]
     vv=[]
@@ -31,14 +34,15 @@ def report(arrs):
             ss=(tabs-len(s)-1)*" "+"|"
             print(ss,end="")
         print("")
-            
-values="""z,y,x,index,value
------------,-----------,-----------,-----------,-----------
-4,0,0,0,hello
+
+def sreport(arr):
+    idx_sorted = asort(arr)
+    arr_sorted = [arr[i] for i in idx_sorted]
+    report(arr_sorted)            
+values="""4,0,0,0,hello
 3,0,0,1,hello
 2,0,0,2,hello
 1,0,0,3,hello
-0,0,0,4,hello
------------,-----------,-----------,-----------,-----------"""
+0,0,0,4,hello"""
 arr=processs(values)
-report(arr)
+sreport(arr)
